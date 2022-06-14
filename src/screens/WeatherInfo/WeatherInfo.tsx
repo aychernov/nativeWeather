@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Image, StyleSheet, Text, View,
 } from 'react-native';
-import IWeather from '../../constants/types/weatherTypes';
+import IWeather from 'weatherTypes';
 
 export default function WeatherInfo({ currentWeather }: IWeather) {
   const {

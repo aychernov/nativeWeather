@@ -11,7 +11,14 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "mocksData": ["./src/mocks/weather.ts"],
+      "weatherTypes": ["./src/constants/types/weatherTypes.ts"],
+      "weatherDetails": ["./src/ui/WeatherDetails/WeatherDetailsTab.tsx"],
+      "weatherInfo": ["./src/screens/WeatherInfo/WeatherInfo.tsx"]
+    },
   },
   "exclude": [
     "node_modules",

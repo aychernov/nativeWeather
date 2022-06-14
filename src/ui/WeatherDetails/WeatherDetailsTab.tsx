@@ -3,15 +3,15 @@ import {
   Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import moment from 'moment';
-import { data, listTab } from '../../mocks/weather';
-import IWeather from '../../constants/types/weatherTypes';
+import { data, listTab } from 'mocksData';
+import IWeather from 'weatherTypes';
 
 export default function WeatherDetailsTab({ currentWeather }: IWeather) {
   // Получаем время
   const [currentTime, setCurrentTime] = useState('');
   useEffect(() => {
-    const time = moment().format('h a');
-    setCurrentTime(time);
+    const currentTime = moment().format('h a');
+    setCurrentTime(currentTime);
   }, []);
 
   // Tabs
@@ -34,17 +34,8 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
     <View key={index}>
       <View>
         <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
-        <Text style={styles.weatherDetailsText}>
-          {' '}
-          {Math.round(temp)}
-          &#176;
-          {' '}
-        </Text>
-        <Text style={styles.weatherDetailsText}>
-          {' '}
-          {currentTime}
-          {' '}
-        </Text>
+        <Text style={styles.weatherDetailsText}>{Math.round(temp)}&#176;</Text>
+        <Text style={styles.weatherDetailsText}>{currentTime}</Text>
       </View>
     </View>
   );
