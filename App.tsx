@@ -5,8 +5,7 @@ import WeatherApp from './src/screens/WeatherApp';
 
 export default function App() {
     return (
-        <View>
             <WeatherApp/>
-        </View>
     );
 }
+

@@ -23,7 +23,7 @@ export default function WeatherApp() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
   const [unitSystem] = useState('metric');
-
+  console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
     load();
   }, []);
