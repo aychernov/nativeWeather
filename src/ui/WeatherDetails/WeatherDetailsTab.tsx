@@ -3,7 +3,7 @@ import {
   Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import moment from 'moment';
-import { data, listTab } from '../../request/openWeatherAPI/dataWeather';
+import { data, listTab } from '../../mocks/weather';
 import IWeather from '../../constants/types/weatherTypes';
 
 const styles = StyleSheet.create({
@@ -45,9 +45,11 @@ const styles = StyleSheet.create({
   textTab: {
     color: '#aeb274',
     fontSize: 15,
+    fontWeight: "bold"
   },
   textTabActive: {
     color: '#fff',
+    fontWeight: "bold"
   },
   flatList: {
     flexDirection: 'row',
