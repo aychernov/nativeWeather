@@ -6,58 +6,6 @@ import moment from 'moment';
 import { data, listTab } from '../../mocks/weather';
 import IWeather from '../../constants/types/weatherTypes';
 
-const styles = StyleSheet.create({
-  weatherDetails: {
-    width: '100%',
-    marginBottom: 80,
-    justifyContent: 'center',
-  },
-  weatherDetailsRow: {},
-  weatherDetailsBox: {
-    alignItems: 'center',
-  },
-  weatherIcon: {
-    width: 60,
-    height: 60,
-  },
-  weatherDetailsText: {
-    color: 'white',
-    textAlign: 'center',
-    alignItems: 'center',
-  },
-  listTab: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    marginBottom: 20,
-  },
-  btnTab: {
-    width: Dimensions.get('window').width / 3.1,
-    flexDirection: 'row',
-    padding: 10,
-    justifyContent: 'center',
-    backgroundColor: '#62708b',
-  },
-  btnTabActive: {
-    backgroundColor: '#191a1e',
-    borderBottomWidth: 4,
-    borderBottomColor: 'red',
-  },
-  textTab: {
-    color: '#aeb274',
-    fontSize: 15,
-    fontWeight: "bold"
-  },
-  textTabActive: {
-    color: '#fff',
-    fontWeight: "bold"
-  },
-  flatList: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-});
-
 export default function WeatherDetailsTab({ currentWeather }: IWeather) {
   // Получаем время
   const [currentTime, setCurrentTime] = useState('');
@@ -130,3 +78,55 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  weatherDetails: {
+    width: '100%',
+    marginBottom: 80,
+    justifyContent: 'center',
+  },
+  weatherDetailsRow: {},
+  weatherDetailsBox: {
+    alignItems: 'center',
+  },
+  weatherIcon: {
+    width: 60,
+    height: 60,
+  },
+  weatherDetailsText: {
+    color: 'white',
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  listTab: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
+  btnTab: {
+    width: Dimensions.get('window').width / 3.1,
+    flexDirection: 'row',
+    padding: 10,
+    justifyContent: 'center',
+    backgroundColor: '#62708b',
+  },
+  btnTabActive: {
+    backgroundColor: '#191a1e',
+    borderBottomWidth: 4,
+    borderBottomColor: 'red',
+  },
+  textTab: {
+    color: '#aeb274',
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  textTabActive: {
+    color: '#fff',
+    fontWeight: "bold"
+  },
+  flatList: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+});

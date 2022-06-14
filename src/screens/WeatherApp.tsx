@@ -7,17 +7,6 @@ import { API_KEY, BASE_URL } from '../request/openWeatherAPI/Client';
 import WeatherInfo from './WeatherInfo/WeatherInfo';
 import WeatherDetailsTab from '../ui/WeatherDetails/WeatherDetailsTab';
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-  },
-  main: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 export default function WeatherApp() {
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
   const [errorMessage, setErrorMessage] = useState(null);
@@ -72,3 +61,14 @@ export default function WeatherApp() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+  },
+  main: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
