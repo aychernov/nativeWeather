@@ -9,7 +9,7 @@ export default function WeatherInfo({ currentWeather }: IWeather) {
     main: { temp },
     weather: [details],
     name,
-  } = (currentWeather);
+  } = currentWeather;
 
   const { icon, main } = details; // Почему св-во icon берется из типа String ???
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
