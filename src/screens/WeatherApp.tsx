@@ -11,7 +11,6 @@ export default function WeatherApp() {
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [unitSystem] = useState('metric');
   console.log(process.env.REACT_APP_API_KEY)
   useEffect(() => {
     load();
@@ -26,7 +25,7 @@ export default function WeatherApp() {
       }
       const location = await Location.getCurrentPositionAsync();
       const { latitude, longitude } = location.coords;
-      const weatherUrl = `${BASE_URL}lat=${latitude}&lon=${longitude}&units=${unitSystem}&appid=${API_KEY}&units=imperial`;
+      const weatherUrl = `${BASE_URL}lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}&units=imperial`;
 
       const response = await fetch(weatherUrl);
       const result = await response.json();
