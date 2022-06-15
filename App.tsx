@@ -8,9 +8,9 @@ import WeatherDetailsTab from 'weatherDetails';
 import config from './src/config';
 
 export default function WeatherScreen() {
-  const { width: windowWidth, height: windowHeight } = useWindowDimensions();
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState(null);
+  const { styles } = useStyle();
+  const [errorMessage, setErrorMessage] = useState<string | boolean>(false);
+  const [currentWeather, setCurrentWeather] = useState<string | null>(null); // Принимаем данные из апи
 
   useEffect(() => {
     async function load() {
@@ -42,7 +42,7 @@ export default function WeatherScreen() {
   if (currentWeather) {
     return (
       <View style={styles.container}>
-        <View style={{ width: windowWidth, height: windowHeight }}>
+        <View style={styles.wrap}>
           <ImageBackground style={{ flex: 1 }} source={require('./assets/images/rain.webp')}>
             <View style={styles.main}>
               <WeatherInfo currentWeather={currentWeather} />
@@ -62,13 +62,23 @@ export default function WeatherScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-  },
-  main: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const useStyle = () => {
+  const dimensions = useWindowDimensions();
+
+  const styles = StyleSheet.create({
+    container: {
+      justifyContent: 'center',
+    },
+    wrap: {
+      height: dimensions.height,
+      width: dimensions.width,
+    },
+    main: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+
+  return { styles };
+};

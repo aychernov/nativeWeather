@@ -6,7 +6,8 @@ import moment from 'moment';
 import { data, listTab } from 'mocksData';
 import IWeather from 'weatherTypes';
 
-export default function WeatherDetailsTab({ currentWeather }: IWeather) {
+export default function WeatherDetailsTab({ currentWeather, props }: IWeather) {
+  const { num } = props;
   // Получаем время
   const [currentTime, setCurrentTime] = useState('');
   useEffect(() => {
@@ -15,10 +16,10 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
   }, []);
 
   // Tabs
-  const [status, setStatus] = useState('Today');
-  const [dataList, setDataList] = useState(data.filter((e) => e.status === 'Today'));
-  const setStatusFilter = (status) => {
-    setDataList([...data.filter((e) => e.status === status)]);
+  const [status, setStatus] = useState<string>('Today');
+  const [dataList, setDataList] = useState(data.filter((e):boolean => e.status === 'Today'));
+  const setStatusFilter = (status: string):void => {
+    setDataList([...data.filter((e):boolean => e.status === status)]);
     setStatus(status);
   };
 
@@ -27,13 +28,12 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
     weather: [details],
   } = currentWeather;
   const { icon }: any = details; // What kind of type?
-  const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
   // Tabs render
   const renderItem = ({ index }: IWeather) => (
     <View key={index}>
       <View>
-        <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
+        <Image style={styles.weatherIcon} source={{ uri: `https://openweathermap.org/img/wn/${icon}@4x.png` }} />
         <Text style={styles.weatherDetailsText}>
           {Math.round(temp)}
           &#176;
@@ -49,6 +49,7 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
         <View style={styles.listTab}>
           {listTab.map((e) => (
             <TouchableOpacity
+
               style={[styles.btnTab, status === e.status && styles.btnTabActive]}
               onPress={() => setStatusFilter(e.status)}
             >
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   btnTab: {
-    width: Dimensions.get('window').width / 3.1,
+    width: Dimensions.get('window').width / 3.1, // уменьшаем ширину в х раз
     flexDirection: 'row',
     padding: 10,
     justifyContent: 'center',

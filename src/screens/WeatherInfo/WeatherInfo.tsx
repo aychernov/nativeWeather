@@ -12,11 +12,10 @@ export default function WeatherInfo({ currentWeather }: IWeather) {
   } = currentWeather;
 
   const { icon, main } = details; // Почему св-во icon берется из типа String ???
-  const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
   return (
     <View style={styles.WeatherInfo}>
-      <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
+      <Image style={styles.weatherIcon} source={{ uri: `https://openweathermap.org/img/wn/${icon}@4x.png` }} />
       <Text style={styles.weatherTemp}>
         {Math.round(temp)}
         &#176;

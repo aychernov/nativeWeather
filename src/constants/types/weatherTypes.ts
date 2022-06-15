@@ -14,7 +14,6 @@ export type TypeWeather = {
     main: TypeTemp,
     weather: string,
     name: string,
-    null: null
 };
 
 export default interface IWeather {
