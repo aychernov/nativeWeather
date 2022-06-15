@@ -34,7 +34,10 @@ export default function WeatherDetailsTab({ currentWeather }: IWeather) {
     <View key={index}>
       <View>
         <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
-        <Text style={styles.weatherDetailsText}>{Math.round(temp)}&#176;</Text>
+        <Text style={styles.weatherDetailsText}>
+          {Math.round(temp)}
+          &#176;
+        </Text>
         <Text style={styles.weatherDetailsText}>{currentTime}</Text>
       </View>
     </View>
@@ -109,11 +112,11 @@ const styles = StyleSheet.create({
   textTab: {
     color: '#aeb274',
     fontSize: 15,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   textTabActive: {
     color: '#fff',
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   flatList: {
     flexDirection: 'row',

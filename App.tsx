@@ -5,7 +5,7 @@ import {
 import * as Location from 'expo-location';
 import WeatherInfo from 'weatherInfo';
 import WeatherDetailsTab from 'weatherDetails';
-import { API_KEY, BASE_URL } from './src/request/openWeatherAPI/Client';
+import config from './src/config';
 
 export default function WeatherScreen() {
   const { width: windowWidth, height: windowHeight } = useWindowDimensions();
@@ -22,7 +22,7 @@ export default function WeatherScreen() {
         }
         const location = await Location.getCurrentPositionAsync();
         const { latitude, longitude } = location.coords;
-        const weatherUrl = `${BASE_URL}lat=${latitude}&lon=${longitude}&units=metric&appid=${API_KEY}&units=imperial`;
+        const weatherUrl = `${config.BASE_URL}lat=${latitude}&lon=${longitude}&units=metric&appid=${config.API_KEY}&units=imperial`;
 
         const response = await fetch(weatherUrl);
         const result = await response.json();
@@ -53,6 +53,7 @@ export default function WeatherScreen() {
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <Text>{errorMessage}</Text>
