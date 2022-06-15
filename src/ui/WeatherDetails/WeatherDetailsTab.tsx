@@ -7,7 +7,6 @@ import { data, listTab } from 'mocksData';
 import IWeather from 'weatherTypes';
 
 export default function WeatherDetailsTab({ currentWeather, props }: IWeather) {
-  const { num } = props;
   // Получаем время
   const [currentTime, setCurrentTime] = useState('');
   useEffect(() => {
@@ -49,7 +48,7 @@ export default function WeatherDetailsTab({ currentWeather, props }: IWeather) {
         <View style={styles.listTab}>
           {listTab.map((e) => (
             <TouchableOpacity
-
+              key={e.status}
               style={[styles.btnTab, status === e.status && styles.btnTabActive]}
               onPress={() => setStatusFilter(e.status)}
             >
