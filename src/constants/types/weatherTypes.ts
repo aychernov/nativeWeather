@@ -1,10 +1,10 @@
 export type TypeDetails = {
-    icon: string | number,
-    main: string
+    main: string,
+    icon: string
 };
 
 export type TypeTemp = {
-    temp: number,
+    temp: number
 };
 
 export type TypeWeather = {
@@ -12,7 +12,7 @@ export type TypeWeather = {
     currentTime: string,
     status: string,
     main: TypeTemp,
-    weather: string,
+    weather: TypeDetails[],
     name: string,
 };
 
@@ -20,6 +20,4 @@ export default interface IWeather {
     index?: number,
     iconUrl?: string,
     currentWeather: TypeWeather,
-    details?: TypeDetails,
-    temp?: number,
 };

@@ -11,7 +11,7 @@ export default function WeatherInfo({ currentWeather }: IWeather) {
     name,
   } = currentWeather;
 
-  const { icon, main } = details; // Почему св-во icon берется из типа String ???
+  const { icon, main } = details;
 
   return (
     <View style={styles.WeatherInfo}>

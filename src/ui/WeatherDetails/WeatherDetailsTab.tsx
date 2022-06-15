@@ -6,7 +6,7 @@ import moment from 'moment';
 import { data, listTab } from 'mocksData';
 import IWeather from 'weatherTypes';
 
-export default function WeatherDetailsTab({ currentWeather, props }: IWeather) {
+export default function WeatherDetailsTab({ currentWeather }: IWeather) {
   // Получаем время
   const [currentTime, setCurrentTime] = useState('');
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function WeatherDetailsTab({ currentWeather, props }: IWeather) {
     main: { temp },
     weather: [details],
   } = currentWeather;
-  const { icon }: any = details; // What kind of type?
+  const { icon } = details;
 
   // Tabs render
   const renderItem = ({ index }: IWeather) => (

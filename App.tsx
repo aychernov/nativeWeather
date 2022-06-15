@@ -35,7 +35,6 @@ export default function WeatherScreen() {
         setErrorMessage(error.message);
       }
     }
-
     return load();
   }, []);
 
